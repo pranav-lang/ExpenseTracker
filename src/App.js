@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useContext} from 'react'
+import IncomeExpense from './incomeExpense'
+import History from './history'
+import AddTransaction from './addTransaction'
+import Balance from './balance'
+import { ExpenseTrackerProvider } from './context'
+export default function App() {
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+<ExpenseTrackerProvider>
+    <div className='h-screen  flex bg-gray-100 justify-center items-center '>
+      <div className=" w-1/5 p-5  flex flex-col">
+        <h1 className='text-4xl'>Expense Tracker</h1>
+        <Balance />
+        <div className="flex  w-full relative justify-center items-center mx-auto ">
+        <IncomeExpense />
+        </div>
+        <History />
+        <AddTransaction />
+      </div>
     </div>
-  );
+    </ExpenseTrackerProvider>
+  )
 }
-
-export default App;
